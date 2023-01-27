@@ -3,6 +3,7 @@ package day33maps;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class HashMaps01 {
@@ -84,9 +85,33 @@ public class HashMaps01 {
         }else {
             salaries.put(teacherName,11000);
         }
-
-
         System.out.println(salaries);
+
+        //replace("USA",400000000,500000000) methodu key USA ve value 400000000 ise value'yu 500000000 yapar
+        hm.replace("USA",400000000,500000000);
+        System.out.println(hm);// {null=18000000, Myanmar=null, USA=500000000, Bhutan=35000000, Germany=85000000, Albania=2800000, India=700000000}
+
+        //getOrDefault() olan "key" lerin degerini verir, olmayan "key" ler icin de sizin ikinci parametreye yazdiginiz degeri verir.
+        Integer r = hm.getOrDefault("Bhutan",0);
+        System.out.println(r);
+
+        //hm.entrySet(); methodu "Map"i "Set"e cevirir.
+        // Setlerin methodlarini kullanabilmek icin entrySet(); methodunu kullanarak Map'i Set'e cevirebiliriz.
+        //Map'i Set'e cevirdigimizde Set'in butun ozelliklerini kullanabiliriz. Mesela loop gibi.
+        //entrySet(); method'unu kullandiginizda elde ettiginiz Set'in elemanlari "(Map.Entry<String,Integer>" seklinde bir Map olur.
+        //Bu yuzden elemanlar icin Map method'lari kullanilabilir.
+        Set<Map.Entry<String,Integer>> myEntries = hm.entrySet();
+        System.out.println(myEntries);// [null=18000000, Myanmar=null, USA=500000000, Bhutan=35000000, Germany=85000000, Albania=2800000, India=700000000]
+
+        //Example 3: Ulke ismindeki character sayisini ulke nufusuna ekleyen ve sonucu console a yazdiran kodu yaziniz.
+        //!!! Map lerde loop kullanilmaz. Bunun yerine Map'ler Set'e cevrilir ve loop kullanilabilir.
+        for (Map.Entry<String,Integer> w:myEntries){
+            if (w.getValue()!= null && w.getKey() != null){
+                int toplam = w.getValue() + w.getKey().length();
+                System.out.println(w.getKey()+": "+toplam);
+            }
+
+        }
 
     }
 
