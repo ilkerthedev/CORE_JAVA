@@ -3,12 +3,12 @@ package day34mapsiterators;
 public enum UsStates {
 
   /*
-        Data deposudur.
-        Sabit , degisme ihtimali olmayan datalari koyar
-        Mesela haftanin gunleri,yilin aylari..
-        Sabit datalari , application icine gommek icin "enum" kullanilir.
-        Cunku application'lar kendi basina ayakta (stand alone) duruyor olabilmelidir.
- */
+        i) Enum bir data deposudur. Enum'in icine sabit, degisme ihtimali olmayan datalari koyariz.
+       ii) Mesela yilin aylari, Haftanin gunleri, ABD'nin eyaletleri, Honda icin yapilan App'lerde Crv, Accord class'lari enum'dir. vs vs vs
+      iii) Sabit datalari app'in icine gommek icin enum kullaniriz.
+       iv) App'ler "standalone" (kendi basina ayakta durabilmesi icin) olmasi gerektigi icin sabit datalari app'in icine gomeriz.
+
+    */
     ALABAMA("Alabama", "AL", "Montgomery"),
     ALASKA("Alaska", "AK", "Juneau"),
     AMERICAN_SAMOA("American Samoa", "AS", "Pago Pago"),
