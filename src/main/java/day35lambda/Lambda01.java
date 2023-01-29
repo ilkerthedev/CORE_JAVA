@@ -1,6 +1,7 @@
 package day35lambda;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Lambda01 {
@@ -10,7 +11,16 @@ public class Lambda01 {
         2)"Functional programming" "Ne yapmak gerekir?(What to do?)" ile ilgilenir "Nasil yapmak gerekir?(How to do?)" ile ilgilenmez.
         3)"Functional programming" Collection'lar ve Array'lerde kullanilir.
         4)Lambda, Java'ya "Java 8"de eklendi.
-        5)"Functional programming" hizli ve hatasiz calisir
+        5)"Functional programming" hizli ve hatasiz calisir.
+
+        "stream()" elemanlari yukardan asagiya dizer."Lambda" list'i "stream" e cevirir öyle calisir.
+        "filter()" filtrelemek icin kullanilir.
+        "map()" u var olan elemani degistirmek icin kullanilir.
+        "distinct()" u tekrarli elemanlari sadece bir kere gosterir ve tekrarsizlari olduklari kadar gosterir.
+         Note : Distinct methodu ilk baslara konulursa "Lambda" ya daha az is yaptirmis oluruz.
+        "reduce()" u  kullanildiginda cok sayidaki deger bir tane degere donusmus olur.
+         Orn; reduce(0,(t,u)->t+u) ==> "t" ilk degeri "sifir" dan alir, daha sonraki degerleri toplamanin sonucundan alir.
+         "u" ise degerlerini her zaman "stream" den alir. "u" ise degerlerini her zaman "stream" den alir .
     */
 
     public static void main(String[] args) {
@@ -26,6 +36,8 @@ public class Lambda01 {
         nums.add(12);
         nums.add(15);
 
+
+
         printElements1(nums);
         System.out.println();
         printElements2(nums);
@@ -39,6 +51,24 @@ public class Lambda01 {
         printCubeOfDistinctOddElements(nums);
         System.out.println();
         printSumOfSquaresOfDistinctEvenElements(nums);
+        //--
+        printProductOfSquareOfDistinctEvenElements(nums);
+        //-
+        getMaxValue1(nums);
+        //--
+        getMaxValue2(nums);
+        //-
+        getMaxValue3(nums);
+        //-Min-
+        getMinValue1(nums);
+        //--
+        getMinValue2(nums);
+        //--
+        getMinValue3(nums);
+        //--
+        getMinValue4(nums);
+        //--new exp
+        getMinGreaterThanSevenEven(nums);
 
     }
 
@@ -118,6 +148,73 @@ public class Lambda01 {
 
     }
 
+    //8)Create a method to calculate the "product" of the "cubes" of "distinct" "even" elements
 
+    public static void printProductOfSquareOfDistinctEvenElements(List<Integer> nums){
+
+        Integer multiply = nums.
+                stream().
+                distinct().
+                filter(t->t%2==0).
+                map(t->(int)Math.pow(t,2)).
+                reduce(1,(t,u)->t*u);
+
+        System.out.println(multiply);
+
+    }
+
+    //9)Create a method to find the "maximum value" from the list elements
+
+    //1.YOL
+    public static void getMaxValue1(List<Integer> nums){
+
+        System.out.println(nums.stream().distinct().reduce(Integer.MIN_VALUE, (t, u) -> t > u ? t : u));
+
+    }
+
+    //2.YOL
+    public static void getMaxValue2(List<Integer> nums){
+
+        System.out.println(nums.stream().distinct().reduce(nums.get(0), (t, u) -> t > u ? t : u));
+
+    }
+
+    //3.YOL
+    public static void getMaxValue3(List<Integer> nums){
+
+        Integer max = nums.stream().distinct().sorted().reduce((t,u)->u).get();
+        System.out.println(max);
+    }
+
+    //10)Create a method to find the minimum value from the list elements
+
+    //1.YOL
+    public static void getMinValue1(List<Integer> nums) {
+        Integer min = nums.stream().distinct().reduce((t,u)->t>u ? u : t).get();
+        System.out.println(min);
+    }
+    //2. YOL
+    public static void getMinValue2(List<Integer> nums) {
+        Integer min = nums.stream().distinct().sorted(Comparator.reverseOrder()).reduce((t, u) -> u).get();
+        System.out.println(min);
+    }
+    //3.YOL
+    public static void getMinValue3(List<Integer> nums){
+        Integer min = nums.stream().distinct().sorted().reduce((t,u)->t).get();
+        System.out.println(min);
+    }
+    //4.YOL
+    public static void getMinValue4(List<Integer> nums){
+        Integer min = nums.stream().distinct().reduce((t,u)->Math.min(t,u)).get();
+        System.out.println(min);
+    }
+
+    //11)Create a method to find the minimum value which is greater than 7 and even from the list
+    //   12 9 131 14 9 10 4 12 15 ==> 10 <-- 7 den buyuk en kucuk cift sayi
+
+    public static void getMinGreaterThanSevenEven(List<Integer> nums){
+        Integer result=nums.stream().distinct().filter(t->t%2==0 && t>7).sorted().reduce((t,u)->t).get();
+        System.out.println(result);
+    }
 
 }
