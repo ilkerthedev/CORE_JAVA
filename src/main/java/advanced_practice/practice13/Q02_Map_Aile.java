@@ -6,17 +6,18 @@ import java.util.Map;
 
 public class Q02_Map_Aile {
     //Ad-Soyad-Yaş ve kardeşler listesini tek bir Map içerisinde saklayan bir kod yazınız.
+
     public static void main(String[] args) {
 
+        Aile ali = new Aile("Ali","Can",12,"Ahmet","Hayriye");
+        System.out.println("ali.getAileMap() = " + ali.getAileMap());
+
+        Aile veli = new Aile("Veli","Han",15,"Mehmet","Hatice","Hasan","Hüseyin");
+        System.out.println("veli.getAileMap() = " + veli.getAileMap());
+
+        Aile ayse = new Aile("Ayşe","Kan",35,"Fatma");
+        System.out.println("ayse = " + ayse);
 
 
     }
-
-    //Map<String,String> adSoyad = new HashMap<>();
-    //        adSoyad.put("Ali","Can");
-    //
-    //        Map<Map<String,String>,Integer> adSoyadYas = new HashMap<>();
-    //        adSoyadYas.put(adSoyad,12);
-    //        System.out.println("adSoyadYas = " + adSoyadYas);// adSoyadYas = {{Ali=Can}=12}
-
 }
