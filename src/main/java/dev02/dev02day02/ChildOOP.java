@@ -14,7 +14,7 @@ public class ChildOOP extends OOP {
         System.out.println(childOOP);
     }
 
-    public ChildOOP() {
+    public  ChildOOP() {
         super();
         System.out.println("childOOP");
     }
