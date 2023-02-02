@@ -7,7 +7,7 @@ public class Variables02 {
                                   Üretilen her bir class aynı zamanda bir "non-primitive data type" dır.
                                   Bu yüzden "non-primitive data type" lar sınırsız sayıdadır denebilir.
                                   Non-primitive data type'ların isimleri büyük harfle başlar.
-                                  Non-primitive data type'ların tamamı için Java memory'de aynı miktarda yer ayırır.
+                                  Non-primitive data type'ların tamamı için Java memory'de aynı miktarda yer ayırır.    
 
        Interview Sorusu: "primitive" ve "non-primitive" data type'ları arasındaki fark nedir ?
                          1)"primive" ler sadece bizim atadığımız değeri içerir,
