@@ -1,5 +1,13 @@
 package day37lambda;
 
+       /*
+            POJO: Plain Old Java Object
+                1)Constructor without parameter
+                2)Constructor with all parameters
+                3)getter() and setter()
+                4)toString()
+       */
+
 public class Course {
 
     private String Season;
