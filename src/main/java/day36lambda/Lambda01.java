@@ -111,6 +111,6 @@ public class Lambda01 {
     }
     //Example 10: List elemanlarindan karakter sayisi cift sayi olanlari bir list icinde ekrana yazdiriniz
     public static List<String>printElementsLengthEven(List<String>list){
-        return list.stream().filter(Utils::isEven).collect(Collectors.toList());
+        return list.stream().filter(Utils::isLenghtEven).collect(Collectors.toList());
     }
 }
